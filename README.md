@@ -9,4 +9,4 @@ npm install
 npm run build
 ```
 
-2. Check presence/absence of the png image in `project/dist` directory.
+2. Check presence/absence of the `.png` image in `project/dist` directory.
