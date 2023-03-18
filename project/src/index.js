@@ -1,3 +1,5 @@
-import createImage from 'lib';
+console.log('Hello from the main thread!')
 
-createImage();
+const worker = new Worker(new URL('./worker.js', import.meta.url));
+
+console.log(worker);
