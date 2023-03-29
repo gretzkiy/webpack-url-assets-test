@@ -7,24 +7,29 @@ module.exports = [
 		name: 'app',
 		target: ['web', 'es2022'],
 		mode: 'development',
-		entry: path.resolve(__dirname, 'src', 'index.js'),
+		entry: path.resolve(__dirname, 'src', 'index.ts'),
 		output: {
 			path: path.resolve(__dirname, 'dist'),
 			publicPath: 'https://my-cdn.com/path-to-my-build-dist/',
+			workerPublicPath: '/workers/'
 		},
 
 		module: {
 			rules: [
 				{
-					test: /worker/,
-					type: 'asset/resource',
-					// These options are not applied to the loaded worker
-					generator: {
-						publicPath: 'https://mywebapp-domain.com/workers/',
-						filename: 'workers/[hash][ext]',
-					}
-				}
+					test: /\.svg/,
+					type: 'asset/resource'
+				},
+
+				{
+					test: /\.ts$/,
+					use: 'ts-loader',
+				},
 			]
+		},
+
+		resolve: {
+			extensions: ['.ts', '.js'],
 		},
 
 		devtool: 'source-map'

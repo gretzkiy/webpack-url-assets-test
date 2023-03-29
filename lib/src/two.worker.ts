@@ -1,4 +1,4 @@
 import { moduleFn } from './helper';
 
-console.log('Hello from the worker!');
+console.log('Hello from worker 2!')
 moduleFn();
